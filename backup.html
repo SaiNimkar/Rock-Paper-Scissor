@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<head>
+	<title>Rock Paper Sissor</title>
+	<style>
+	
+	.static1 {
+        position: static;
+		padding : 20px;
+	    text-align: center;
+		font-family: monospace;
+	    text-color:#ffffff;
+	    background: #29B6F6;
+	}
+		
+	*{
+		box-sizing: border-box;
+	}
+
+	.column1 {
+    float: left;
+    width: 33.33%;
+    padding: 20px;
+    height: 300px;
+	}
+
+
+	#row1:after {
+    content: "";
+    display: table;
+    clear: both;
+	}
+	
+	
+	
+	.column2 {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    height: 300px;
+	}
+
+
+	.row2:after {
+    content: "";
+    display: table;
+    clear: both;
+	}
+	
+	#info {
+		
+		padding: 5px;
+	}
+	
+	button {
+    background-color: #29B6F6;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+	</style>
+</head>
+
+<body>
+	
+<div class="static1">
+		<h1 id="try" style="font-size: 40px; color: white;"> LET'S PLAY ROCK PAPER SCISSOR.... </h1>
+	</div>
+	
+<div id="info" align="center" style="background-color: #e0e0e0; max-height:120px;">
+	<p style="font-size: 30px; font-family: monospace;" id="para">Enter your name: 
+	<input type="text" id="name" style="padding: 12px 20px; margin: 8px 0; border: 2px #000000;
+    border-radius: 5px;"></input>
+	<button onclick="replace()">NEXT</button>
+	</p>
+	<br><br><br>
+</div>
+	
+<div id="row1"  style="display:none;">
+  <div class="column1" style="background-color:#ffffff;">
+  <img id="rock" align="middle" onMouseOver="this.style.width='400px'" onMouseOut="this.style.width='300px'"  src = "file:///F:/rock.jpg" onclick="myfunction('rock')">
+  </div>
+  <div class="column1" style="background-color:#ffffff;">
+  <img align="middle" onMouseOver="this.style.width='300px'" onMouseOut="this.style.width='250px'"   src = "file:///F:/paper.jpg" onclick="myfunction('paper')">
+  </div>
+  <div class="column1" style="background-color:#ffffff;">
+  <img align="middle" onMouseOver="this.style.width='350px'" onMouseOut="this.style.width='300px'"   src = "file:///F:/sissor.jpg" onclick="myfunction('scissor')">
+  </div>
+</div>
+
+
+<div class="row2" id="row2" style="display:none;">
+	<div class="column2" id="column2" style="background-color:#ffffff;">
+		<h2 style="text-align: center; font-family: monospace; font-size: 30px;"> Your Choice <h2>
+		<img id="img1" align = "middle" src = "file:///F:/white.jpg">
+	</div>
+	<div class="column2" id="column2" style="background-color:#ffffff;">
+		<h2 style="text-align: center; font-family: monospace; font-size: 30px;"> Computer's Choice </h2>
+		<img id="img2" align = "middle" src = "file:///F:/white.jpg" >
+	</div>
+</div>
+
+<br><br><br>
+
+<div class="static1" id="static1" style="display:none;">
+	<h1 id="result"> </h1>
+</div>
+	
+    <script>
+	
+		function replace()
+		{
+			var name = document.getElementById("name").value;
+			document.getElementById("para").innerHTML = "Hello " + name + ", Please choose any one from the following: ";
+			document.getElementById("row1").style.display= "block";
+			
+        }
+		
+		function myfunction(user)
+		{
+			var computer = Math.random();
+			var rock, sissor,paper, x, y, z;
+			
+			if(computer<=0.33)
+			{
+			rock = true;
+			document.getElementById("img2").src = "file:///F:/rock.jpg";
+			}
+			else if(computer<=0.66)
+			{
+			paper = true;
+			document.getElementById("img2").src = "file:///F:/paper.jpg"
+			}
+			else 
+			{
+			sissor = true;
+			document.getElementById("img2").src ="file:///F:/sissor.jpg";
+			}
+
+			document.getElementById("row2").style.display = "block";
+			document.getElementById("static1").style.display = "block";
+			
+			
+			if((user == "rock" && rock == true) || (user == "paper" && paper == true) || (user == "scissor" && scissor == true))
+			document.getElementById("result").innerHTML = "Its a Tie! ";
+			
+			else if(user=="rock")
+			{
+			document.getElementById("img1").src ="file:///F:/rock.jpg";
+				if(paper==true)
+				document.getElementById("result").innerHTML = "You Lose :(! ";
+				else if(sissor==true)
+				{
+				document.getElementById("result").innerHTML = "You Win :)! ";
+				}
+			}
+		
+		else if(user=="paper")
+		{
+			document.getElementById("img1").src ="file:///F:/paper.jpg";
+			if(sissor==true)
+				document.getElementById("result").innerHTML = "You Lose :(! ";
+			else if(rock==true)
+			{
+				document.getElementById("result").innerHTML = "You Win :)! ";
+			}
+
+		}
+		
+		else if(user=="scissor")
+		{
+			document.getElementById("img1").src ="file:///F:/sissor.jpg";
+			if(rock==true)
+				document.getElementById("result").innerHTML = "You Lose :(! ";
+			else if(paper==true)
+			{
+				document.getElementById("result").innerHTML = "You Win :)! ";
+			}
+		}
+			
+			
+		}
+
+</script>	
+	
+</body>
