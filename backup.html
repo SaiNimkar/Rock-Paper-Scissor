@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<title>Rock Paper Sissor</title>
+	<title>Rock Paper Scissor</title>
 	<style>
 	
 	.static1 {
@@ -63,13 +63,17 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+
+	img {
+		align: middle;
+	}
 	</style>
 </head>
 
 <body>
 	
 <div class="static1">
-		<h1 id="try" style="font-size: 40px; color: white;"> LET'S PLAY ROCK PAPER SCISSOR.... </h1>
+		<h1  style="font-size: 40px; color: white;"> LET'S PLAY ROCK PAPER SCISSOR.... </h1>
 	</div>
 	
 <div id="info" align="center" style="background-color: #e0e0e0; max-height:120px;">
@@ -86,10 +90,10 @@
   <img id="rock" align="middle" onMouseOver="this.style.width='400px'" onMouseOut="this.style.width='300px'"  src = "file:///F:/rock.jpg" onclick="myfunction('rock')">
   </div>
   <div class="column1" style="background-color:#ffffff;">
-  <img align="middle" onMouseOver="this.style.width='300px'" onMouseOut="this.style.width='250px'"   src = "file:///F:/paper.jpg" onclick="myfunction('paper')">
+  <img align="middle" onMouseOver="this.style.width='300px'" onMouseOut="this.style.width='250px'" src = "file:///F:/paper.jpg" onclick="myfunction('paper')">
   </div>
   <div class="column1" style="background-color:#ffffff;">
-  <img align="middle" onMouseOver="this.style.width='350px'" onMouseOut="this.style.width='300px'"   src = "file:///F:/sissor.jpg" onclick="myfunction('scissor')">
+  <img align="middle" onMouseOver="this.style.width='350px'" onMouseOut="this.style.width='300px'" src = "file:///F:/sissor.jpg" onclick="myfunction('scissor')">
   </div>
 </div>
 
@@ -124,7 +128,7 @@
 		function myfunction(user)
 		{
 			var computer = Math.random();
-			var rock, sissor,paper, x, y, z;
+			var rock, scissor,paper, x, y, z;
 			
 			if(computer<=0.33)
 			{
@@ -138,7 +142,7 @@
 			}
 			else 
 			{
-			sissor = true;
+			scissor = true;
 			document.getElementById("img2").src ="file:///F:/sissor.jpg";
 			}
 
@@ -154,7 +158,7 @@
 			document.getElementById("img1").src ="file:///F:/rock.jpg";
 				if(paper==true)
 				document.getElementById("result").innerHTML = "You Lose :(! ";
-				else if(sissor==true)
+				else if(scissor==true)
 				{
 				document.getElementById("result").innerHTML = "You Win :)! ";
 				}
@@ -163,7 +167,7 @@
 		else if(user=="paper")
 		{
 			document.getElementById("img1").src ="file:///F:/paper.jpg";
-			if(sissor==true)
+			if(scissor==true)
 				document.getElementById("result").innerHTML = "You Lose :(! ";
 			else if(rock==true)
 			{
@@ -184,7 +188,7 @@
 		}
 			
 			
-		}
+	}
 
 </script>	
 	
