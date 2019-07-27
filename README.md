@@ -1,2 +1,2 @@
 # Rock-Paper-Scissor
-A basic game made using html, css and Javascript
+An interactive rock, paper, scissors game developed in HTML, CSS and javascript
